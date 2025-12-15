@@ -1,10 +1,14 @@
-name: Build and Publish Docker Image to GHCR
+name: Build and Publish Docker Image 
 
 on:
   push:
     branches: ["main"]
   release:
     types: [published]
+
+permissions:
+  contents: read
+  packages: write   # ← 必须加！否则 GHCR 拒绝推送
 
 jobs:
   docker:
