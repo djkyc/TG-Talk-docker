@@ -1,10 +1,10 @@
-name: Build and Publish Docker Image (Manual Branch Version)
+name: Build Docker Image -Branch Version
 
 on:
   workflow_dispatch:
     inputs:
       branch:
-        description: "1.03"
+        description: "1.03"   #请输入要构建的分支名，例如：1.03
         required: true
         default: "main"
 
@@ -51,7 +51,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/tg-talk:${{ steps.vars.outputs.version }}
-            
+            ghcr.io/${{ github.repository_owner }}/tg-talk:latest
 
       - name: Done
         run: echo "🎉 镜像版本 ${{ steps.vars.outputs.version }} 已成功推送到 GHCR!"
