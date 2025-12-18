@@ -20,3 +20,15 @@ ghcr.io/djkyc/tg-talk:latest
 但 Zeabur 的卷挂载最佳方式是 /data
 
 3.让管理 Bot 和主 Bot 用同一个 TG_TOKEN****
+
+
+V1.03
+但你仍然可以让它们共用同一个 Dockerfile！
+
+区别在于：
+
+✔ 一个 Dockerfile
+✔ 两个 Service（Zeabur Deploy 两次）
+
+Service 1（Bot） 使用：dockerfile → CMD ["python", "host_bot.py"]
+Service 2（Web） 使用：dockerfile → CMD ["python", "verify_server.py"]
